@@ -47,10 +47,20 @@ function updateTransactionList(obj){
     li.append(p1,p2,btn);
     transactionListEl.prepend(li);
     // console.log(transactionListEl);
-    // btn.addEventListener("click",()=>{
-    //     removefromStorage(obj);
-    // });
+    btn.addEventListener("click",()=>{
+        li.remove();
+        removefromStorage(obj.id);
+        updateSummary();
+    });
 }
+
+function removefromStorage(id){
+    transactions = transactions.filter((obj)=>{
+        return obj.id !== id;
+    });
+    localStorage.setItem("transactions",JSON.stringify(transactions));
+}
+
 function updateSummary(){
     const balance = transactions.reduce((a,obj)=>{
         return a + obj.amount;
