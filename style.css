@@ -85,6 +85,12 @@ h2{
     font-weight: 600;
     font-size: 1.75rem;
 }
+.income-text{
+    color:#12bb61;
+}
+.expense-text{
+    color:red;
+}
 .transaction-content{
     height: 100%;
     display: flex;
